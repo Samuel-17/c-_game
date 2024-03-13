@@ -1,7 +1,7 @@
 #include "include/Player.h"
 
 Player::Player(float x, float y, float width, float height) :
-    position(x, y), width(width), height(height), velocity(x, y), rig(this->position, this->velocity) {}
+    position(x, y), width(width), height(height), velocity(x, y), rig(position, velocity) {}
 
 float Player::getPositionX() {
     return position.x;
@@ -21,7 +21,7 @@ float Player::getHeight() {
 
 void Player::update(float deltaTime) {
     rig.Update(deltaTime);
-    position.x += rig.getVelocity().x;
+    position.x += velocity.x;
     position.y += rig.getVelocity().y;
 }
 
