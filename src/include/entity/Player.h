@@ -2,14 +2,14 @@
 #define PLAYER_H
 
 #include <SFML/Graphics.hpp>
-#include "Rigidbody2d.h"
+#include "../components/Rigidbody2d/Rigidbody2d.h"
+#include "Ground.h"
 
 class Player {
 private:
     sf::Vector2f position;
     sf::Vector2f velocity;
-    float width;
-    float height;
+    sf::Vector2f size;
 
     Rigidbody2d rig;
 
@@ -18,17 +18,26 @@ public:
 
     float getPositionX();
     float getPositionY();
-    float getWidth();
-    float getHeight();
 
     void update(float deltaTime);
     void draw(sf::RenderWindow& window);
 
-    // Métodos para obter e definir velocidades
+    // Geters
     float getVelocityX();
     float getVelocityY();
+
+    //Seters
     void setVelocityX(float x);
     void setVelocityY(float y);
+
+
+    sf::Vector2f getSize();
+    sf::Vector2f getVelocity();
+
+
+    Rigidbody2d* getRigidbody();
+
+    
 };
 
 #endif

@@ -7,7 +7,7 @@ public:
     static bool checkCollision(const T& object1, const U& object2);
 };
 
-#include "../Collider.tpp" // Include da implementação de templates
+#include "../../../../components/Rigidbody2d/Collider/Collider.tpp" // Include da implementação de templates
 
 #endif
 
