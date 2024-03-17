@@ -14,7 +14,7 @@ class Rigidbody2d {
 		sf::Vector2f size;
 	
 	public:
-		Rigidbody2d(const sf::Vector2f& initialPosition, const sf::Vector2f& initialVelocity, const sf::Vector2f& size);
+		Rigidbody2d(const sf::Vector2f& initialPosition, const sf::Vector2f& initialVelocity, const sf::Vector2f& size, const float& mass);
 		void Update(float deltaTime);
 		void onCollision(const Rigidbody2d& other, CollisionSide side);
 
@@ -23,8 +23,12 @@ class Rigidbody2d {
 		sf::Vector2f getPosition();
 		sf::Vector2f getSize();
 
+		//position
+		sf::Vector2f setPosition(sf::Vector2f newPosition);
+
+		
+
 		void setVelocity(const sf::Vector2f& newVelocity);
-		void move(const sf::Vector2f& direction);
 };
 
 #endif

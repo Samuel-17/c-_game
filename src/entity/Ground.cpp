@@ -2,7 +2,7 @@
 #include "../include/components/Rigidbody2d/Rigidbody2d.h"
 
 Ground::Ground(float x, float y,float width, float height) : 
-	position(x, y), velocity(0.0f, 0.0f), size(width, height), rig(position, velocity, size) {}
+	position(x, y), velocity(0.0f, 0.0f), size(width, height), rig(position, velocity, size, 0.0f) {}
 
 void Ground::draw(sf::RenderWindow& window){
 	sf::RectangleShape groundRect(size);

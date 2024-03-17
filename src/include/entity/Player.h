@@ -1,26 +1,35 @@
+//class Player
 #ifndef PLAYER_H
 #define PLAYER_H
 
 #include <SFML/Graphics.hpp>
 #include "../components/Rigidbody2d/Rigidbody2d.h"
-#include "Ground.h"
+#include "../components/GameObject/IGameObject.h"
+#include "Fire.h"
+#include<iostream>
 
-class Player {
+class Player : public IGameObject {
 private:
     sf::Vector2f position;
     sf::Vector2f velocity;
     sf::Vector2f size;
+    sf::RenderWindow* window;
+    float mass;
 
     Rigidbody2d rig;
 
 public:
-    Player(float x, float y, float width, float height);
+    Player(sf::RenderWindow* window, float x, float y, float width, float height, float mass);
+
+    //Event
+    void handleKeyboardInput(const sf::Event& event) override;
 
     float getPositionX();
     float getPositionY();
 
     void update(float deltaTime);
     void draw(sf::RenderWindow& window);
+    void fire();
 
     // Geters
     float getVelocityX();
