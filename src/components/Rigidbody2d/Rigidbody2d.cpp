@@ -26,32 +26,31 @@ void Rigidbody2d::move(const sf::Vector2f& direction){
 }
 
 void Rigidbody2d::Update(float deltaTime) {
-    velocity += force * deltaTime; // Aplica a gravidade à velocidade
-    // Limitar a velocidade máxima de queda para evitar que seja muito lenta ou rápida demais
-    float maxFallSpeed = 50.0f; // Exemplo de limite máximo de velocidade de queda
+    velocity += force * deltaTime; 
+    float maxFallSpeed = 50.0f;
     if (velocity.y > maxFallSpeed) {
         velocity.y = maxFallSpeed;
     }
-    velocity += velocity * deltaTime; // Atualiza a posição com a nova velocidade
+    velocity += velocity * deltaTime; 
 }
 
 void Rigidbody2d::onCollision(const Rigidbody2d& other, CollisionSide side) {
     switch (side) {
         case CollisionSide::LEFT:
             std::cout << "Collision on the LEFT side." << std::endl;
-            velocity.x = -velocity.x; // Inverte a direção em x para "quicar" lateralmente
+            velocity.x = -velocity.x; 
             break;
         case CollisionSide::RIGHT:
             std::cout << "Collision on the RIGHT side." << std::endl;
-            velocity.x = -velocity.x; // Inverte a direção em x para "quicar" lateralmente
+            velocity.x = -velocity.x; 
             break;
         case CollisionSide::TOP:
             std::cout << "Collision at the TOP." << std::endl;
-            velocity.y = -velocity.y * 0.8f; // Faz o objeto "quicar" para cima, mas reduz a velocidade para simular perda de energia
+            velocity.y = -velocity.y * 0.8f;
             break;
         case CollisionSide::BOTTOM:
             std::cout << "Collision at the BOTTOM." << std::endl;
-            velocity.y = -velocity.y * 0.8f; // Inverte a direção em y para "quicar" e reduz a magnitude para simular a perda de energia
+            velocity.y = -velocity.y * 0.8f; 
             break;
         default:
             std::cout << "Unknown collision side." << std::endl;
