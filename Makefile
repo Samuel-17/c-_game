@@ -12,7 +12,6 @@ TARGET = $(BUILD_DIR)/game
 SOURCES = $(shell find $(SRC_DIR) -name '*.cpp')
 OBJECTS = $(SOURCES:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 
-# Regra padrão: compilar todos os arquivos-objeto e criar o executável
 $(TARGET): $(OBJECTS)
 	$(CXX) -o $@ $(OBJECTS) $(SFMLFLAGS)
 
