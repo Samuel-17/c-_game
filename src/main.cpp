@@ -20,13 +20,11 @@ int main(){
     sf::Clock clock;
     int keyPressed = 0;
 
-    //Start the game Loop
+
     while(window.isOpen()){
-        //Process events
         sf::Event event;
 
         while (window.pollEvent(event)) {
-            // Close window to exit
             if (event.type == sf::Event::Closed) {
                 window.close();
             } else if (event.type == sf::Event::KeyPressed) {
